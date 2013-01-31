@@ -1,1 +1,17 @@
 <p>This is the partial for view 1.</p>
+
+
+
+
+
+{{user.following}}
+
+<h3>{{fans.length || '?'}} fans</h3>
+<ul ng-repeat="fan in fans">
+
+<li>{{fan.login}}</li>
+<li>{{fan.following_url}}</li>
+<!-- <img ng-src="{{fan.avatar_url}}"/> -->
+
+</ul>
+

@@ -2,8 +2,11 @@
 
 /* Services */
 
+angular.module('myApp.services', ['ngResource']).
+factory('Github', ['$resource', '$http', function($resource, $http) {
+    return {
+		list: $resource('https://api.github.com/users/:user/followers?per_page=100&page=:pagenum', {user: '@user', pagenum: '@pagenum'}),
+		user: $resource('https://api.github.com/users/:user', {user: '@user'})
+    };
+}]);
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
