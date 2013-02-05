@@ -1,17 +1,23 @@
-<p>This is the partial for view 1.</p>
+<!-- <h1>{{user.name}} is following {{user.following}}.</h1> -->
 
+<h1>{{user.name}}</h1>
 
+<h3>Showing {{fans.length || '?'}} fans {{user.following || '?'}} fans</h3>
 
+<!-- {{addFans()}} -->
+<button ng-click="addFans()">Get fans!</button>
 
-
-{{user.following}}
-
-<h3>{{fans.length || '?'}} fans</h3>
-<ul ng-repeat="fan in fans">
-
-<li>{{fan.login}}</li>
-<li>{{fan.following_url}}</li>
-<!-- <img ng-src="{{fan.avatar_url}}"/> -->
-
-</ul>
-
+<table class="table table-striped table-bordered table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Following Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="fan in fans">
+      <td>{{fan.login}}</td>
+      <td>{{fan.following_url}}</td>
+    </tr>
+  </tbody>
+</table>
